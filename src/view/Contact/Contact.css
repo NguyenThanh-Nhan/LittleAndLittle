@@ -1,0 +1,214 @@
+.bg-1 {
+  background-color: #ffa12c;
+  height: 1100px;
+  width: 1920px;
+  position: relative;
+  z-index: 1;
+  border: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.bg-2 {
+  background-color: #ffc500;
+  width: 1800px;
+  height: 1050px;
+  position: absolute;
+  left: 60px;
+  z-index: 2;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.lable-1 {
+  color: var(--w, #fff);
+  font-family: iCiel Koni;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 100px;
+  margin-top: 100px;
+}
+.bg-3 {
+  background-color: #fde8b3;
+  width: 950px;
+  height: 630px;
+  box-shadow: 10px 10px 10px #ffca7b;
+  border-radius: 15px;
+  margin-left: 100px;
+  padding-top: 15px;
+}
+.bg-4 {
+  background-color: #fff6d4;
+  width: 920px;
+  height: 600px;
+  border-radius: 15px;
+  margin-left: 15px;
+  border: dashed #ffb489;
+}
+.text-1 {
+  color: var(--text, #23221f);
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  opacity: 0.699999988079071;
+}
+.note-name {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: inset -1px 6px 3px #b25b0b80;
+  height: 56px;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 300px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+.note-email {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: inset -1px 6px 3px #b25b0b80;
+  height: 56px;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 500px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+.note-phone {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: inset -1px 6px 3px #b25b0b80;
+  height: 56px;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 300px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+.note-address {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: inset -1px 6px 3px #b25b0b80;
+  height: 56px;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 500px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+.note-pad {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: inset -1px 5px 5px #b25b0b80;
+  width: 830px;
+  height: 120px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  padding: 10px;
+  resize: none;
+  overflow: auto;
+}
+::placeholder {
+  color: var(--ultimate-gray, #989a9c);
+  /* 18 medium */
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+  opacity: 0.5;
+  padding-left: 10px;
+}
+.note-pad::placeholder {
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+.button-send {
+  margin-top: 20px;
+  margin-left: 60px;
+  background-color: #ff000a;
+  color: white;
+  font-family: "iCiel Koni-Black", Helvetica;
+  font-size: 30px;
+  width: 300px;
+  height: 70px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  top: 0;
+  border-radius: 15px;
+  box-shadow: 10px 10px 10px #bd000b;
+  color: var(--w, #fff);
+  font-family: iCiel Koni;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 1.68px;
+  margin-left: 300px;
+}
+.bg-5 {
+  background-color: #fde8b3;
+  width: 540px;
+  height: 190px;
+  box-shadow: 10px 10px 10px #ffca7b;
+  border-radius: 15px;
+  margin-left: 100px;
+  padding-top: 15px;
+}
+.bg-6 {
+  background-color: #fff6d4;
+  width: 500px;
+  height: 165px;
+  border-radius: 15px;
+  margin-left: 10px;
+  border: dashed #ffb489;
+  padding: 12px 12px 12px 12px;
+}
+.icon1{
+  background-image: url(../../assect/img/icon1.png);
+  width: 45px;
+  height: 53px;
+  margin-top: 30px;
+}
+.icon2{
+  background-image: url(../../assect/img/icon2.png);
+  width: 62px;
+  height: 62px;
+  margin-top: 30px;
+}
+.icon3{
+  background-image: url(../../assect/img/icon3.png);
+  width: 62px;
+  height: 62px;
+  margin-top: 30px;
+}
+.text-lable{
+color: #12265A;
+font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
