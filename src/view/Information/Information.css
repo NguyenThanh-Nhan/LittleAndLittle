@@ -1,4 +1,4 @@
-.card{
+.card {
   background-color: white;
   width: 340px;
   height: 500px;
@@ -55,12 +55,11 @@
   width: 200px;
   height: 40px;
   background-color: #ff000a;
-  color: white;
   font-family: "iCiel Koni-Black", Helvetica;
   font-size: 30px;
   left: 0;
   letter-spacing: 0;
-
+  border: none;
   top: 0;
   border-radius: 10px;
   box-shadow: 10px 10px 10px #bd000b;
@@ -74,8 +73,12 @@
   letter-spacing: 1.68px;
 }
 .custom-card {
-width: 1790.437px;
-height: 956.92px;
+  width: 1790.437px;
+  height: 956.92px;
   border-radius: 20px;
-  background: #FFF;
+  background: #fff;
+}
+.card-img-top {
+  width: 340px;
+  height: 225px;
 }
