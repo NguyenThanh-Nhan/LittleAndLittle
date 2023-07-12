@@ -3,8 +3,7 @@ import "../Contact/Contact.css";
 
 function Contact() {
   return (
-        <div className="bg-1">
-            <div className="bg-2">
+        <div className="contact_bg1">
                 <div className="row">
                     <div className="col text-center">
                         <p className="lable-1">Liên Hệ</p>
@@ -99,7 +98,6 @@ function Contact() {
                         </div>
                     </div>
                 </div>
-        </div>
       </div>
       
   );

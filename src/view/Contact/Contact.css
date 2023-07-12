@@ -1,23 +1,24 @@
-.bg-1 {
-  background-color: #ffa12c;
-  height: 1100px;
-  width: 1920px;
+ .contact_bg1{
+  background-color: #FFA12C;
+  width: 1800px;
+  height: 950px;
+  margin-left: 73px;
   position: relative;
   z-index: 1;
   border: 50px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-}
-.bg-2 {
-  background-color: #ffc500;
+} 
+/* .contact_bg2{
+  background-color: #ffa12c;
   width: 1800px;
   height: 1050px;
   position: absolute;
   left: 60px;
-  z-index: 2;
+  z-index: 1;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-}
+}  */
 .lable-1 {
   color: var(--w, #fff);
   font-family: iCiel Koni;

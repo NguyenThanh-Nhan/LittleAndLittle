@@ -1,22 +1,12 @@
-.bg-1 {
+.home_bg1 {
   background-color: #ffa12c;
-  height: 1100px;
-  width: 1920px;
-  position: relative;
-  z-index: 1;
-  border: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-}
-.bg-2 {
-  background-color: #ffc500;
   width: 1800px;
-  height: 1050px;
+  height: 950px;
   position: absolute;
-  left: 60px;
   z-index: 2;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
+  margin-left: 73px;
 }
 .text-lable1 {
   color: #ffffff;
@@ -138,7 +128,7 @@
   line-height: normal;
   top: 0;
   border-radius: 15px;
-    box-shadow: 10px 10px 10px #bd000b;
+  box-shadow: 10px 10px 10px #bd000b;
   color: var(--w, #fff);
   font-family: iCiel Koni;
 }

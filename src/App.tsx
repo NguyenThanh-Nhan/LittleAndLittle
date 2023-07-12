@@ -1,19 +1,17 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Home from './view/Home/Home';
-import PageError from './view/PageError/PageError';
-import Event from './view/Event/Event';
-import Contact from './view/Contact/Contact';
+import React from "react";
+import "./App.css";
 
+import Routers from "./routers/Routers";
+import Navbar from "./layout/Navbar/Navbar";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/*" element={<PageError />} />
-      <Route path="/event" element={<Event />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
+    <div className="wrapper">
+      <div className="navbar-wrapper">
+        <Navbar />
+      </div>
+      <Routers />
+    </div>
   );
 }
 

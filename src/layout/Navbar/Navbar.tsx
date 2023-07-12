@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="container-fluid">
+    <div className="navbar_bg">
       <div className="row">
         <div className="col col-2"></div>
         <div className="col">
@@ -16,7 +16,7 @@ function Navbar() {
           </Link>
         </div>
         <div className="col">
-          <Link to="/event" className="nav-link">
+          <Link to="/events" className="nav-link">
             <button className="nav-bt" type="button">
               Sự kiện
             </button>

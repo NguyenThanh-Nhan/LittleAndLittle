@@ -1,32 +1,9 @@
-.bg-1 {
-  background-color: #ffa12c;
-  height: 1100px;
-  width: 1920px;
-  position: relative;
-  z-index: 1;
-  border: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+.card{
+  background-color: white;
+  width: 340px;
+  height: 500px;
 }
-.bg-2 {
-  background-color: #ffc500;
-  width: 1800px;
-  height: 1050px;
-  position: absolute;
-  left: 60px;
-  z-index: 2;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-}
-.content {
-  color: #fff;
-  /* Header */
-  font-family: iCiel Koni;
-  font-size: 96px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: 100px;
-}
+
 .nameevent {
   color: var(--text, #23221f);
   font-family: Montserrat;
@@ -96,6 +73,9 @@
   line-height: normal;
   letter-spacing: 1.68px;
 }
-.card{
-  width: 18rem;
+.custom-card {
+width: 1790.437px;
+height: 956.92px;
+  border-radius: 20px;
+  background: #FFF;
 }
