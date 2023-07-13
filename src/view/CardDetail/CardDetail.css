@@ -1,0 +1,79 @@
+.detail-lable {
+  margin-top: 150px;
+  color: var(--w, #fff);
+  font-family: iCiel Koni;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 100px; /* 156.25% */
+}
+.detail-bg1 {
+  background-color: #fde8b3;
+  width: 1519px;
+  height: 637px;
+  margin-left: 160px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px #ffca7b;
+}
+.detail-bg2 {
+  background-color: #fff6d4;
+  width: 1495px;
+  height: 612px;
+  margin-left: 10px;
+  margin-top: 12px;
+  border-radius: 10px;
+  border: dashed #ffb489;
+}
+.detail-img1 {
+  width: 411px;
+  height: 337px;
+  border-radius: 30px;
+}
+.bi-calendar4-week {
+  color: #ffb809;
+  background-color: #fff6d4;
+}
+.detail-location {
+  color: #6c7272;
+  /* 18 medium */
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 144.444% */
+}
+.detail-price {
+  width: 212px;
+  height: 24px;
+  color: #fa7d09;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 150% */
+  letter-spacing: 0.16px;
+}
+.description1 {
+  color: #000;
+  /* 18 medium */
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px;
+}
+.imagedetail {
+  width: 411px;
+  height: 250px;
+  border-radius: 40px;
+}
+.description23 {
+  color: #000;
+  text-align: justify;
+  /* 18 medium */
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 26px; /* 144.444% */
+}

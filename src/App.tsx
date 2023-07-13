@@ -10,7 +10,9 @@ function App() {
       <div className="navbar-wrapper">
         <Navbar />
       </div>
-      <Routers />
+      <div className="app-bg">
+        <Routers />
+      </div>
     </div>
   );
 }

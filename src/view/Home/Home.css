@@ -1,5 +1,4 @@
-.home_bg1 {
-  background-color: #ffa12c;
+.home {
   width: 1800px;
   height: 950px;
   position: absolute;
@@ -7,6 +6,13 @@
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   margin-left: 73px;
+}
+.group1 {
+  margin-top: 100px;
+}
+.img-logo2 {
+  margin-top: 40px;
+  margin-left: 90px;
 }
 .text-lable1 {
   color: #ffffff;
@@ -18,8 +24,6 @@
   line-height: 100px;
   top: 0;
   white-space: nowrap;
-  margin-left: 330px;
-  margin-top: 60px;
 }
 .text-lable2 {
   color: #ffffff;
@@ -31,8 +35,50 @@
   line-height: 100px;
   top: 0;
   white-space: nowrap;
-  margin-top: 0px;
-  margin-left: 330px;
+}
+.lisa-img {
+  width: 380px;
+  height: 450px;
+  margin-left: -140px;
+  margin-top: 190px;
+  position: absolute;
+  z-index: 4;
+}
+.group-img {
+  width: 700px;
+  height: 400px;
+  margin-top: -280px;
+  margin-left: 1050px;
+}
+.balloon1-img {
+  width: 130px;
+  height: 174px;
+  margin-top: -390px;
+  margin-left: 980px;
+}
+.balloon2-img {
+  width: 144px;
+  height: 205px;
+  margin-top: -290px;
+  margin-left: 700px;
+}
+.balloon3-img {
+  width: 166px;
+  height: 237px;
+  margin-top: 300px;
+  margin-left: 1600px;
+}
+.balloon4-img {
+  width: 130px;
+  height: 174px;
+  margin-top: -370px;
+  margin-left: 980px;
+}
+.balloon5-img {
+  width: 155px;
+  height: 210px;
+  margin-top: -670px;
+  margin-left: -1220px;
 }
 /* nodebook */
 .note-book1 {
@@ -43,6 +89,7 @@
   top: 300px;
   left: 150px;
   z-index: 3;
+  margin-top: 50px;
 }
 
 .note-book2 {
@@ -53,6 +100,7 @@
   top: 300px;
   left: 1120px;
   z-index: 3;
+  margin-top: 50px;
 }
 .lorem-ipsum-dolor {
   color: #23221f;
@@ -89,6 +137,7 @@
 }
 .bi-star-fill {
   color: yellow;
+  margin-left: 50px;
 }
 .note-wrapper1 {
   background-color: #ffffff;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Information from "../Information/Information";
 import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { firestore } from "../../config/controller";
+import CardDetail from "../CardDetail/CardDetail";
 
-function Event() {
+function EventDetail() {
   const { id } = useParams();
   // Fetch a single document
   const getEvent = doc(firestore, `events/${id}`);
@@ -36,11 +36,10 @@ function Event() {
   return (
     <div className="event-details">
       {Object.keys(event) && Object.keys(event).length ? (
-        <Information event={event} detailsPage />
+        <CardDetail event={event} detailsPage />
       ) : null}
     </div>
   );
 }
 
-export default Event;
-
+export default EventDetail;

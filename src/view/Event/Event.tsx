@@ -2,13 +2,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { eventsCollection } from "../../config/controller";
 import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
 import { NewEventType } from "../../types/event";
-import Information from "../Information/Information";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../Card/Card.css";
+import "./Event.css";
+import CardEvent from "../CardEvent/CardEvent";
 
-function Card() {
+function Event() {
   const [events, setEvents] = useState<NewEventType[]>([]);
   const sliderRef = useRef<Slider>(null);
 
@@ -62,30 +62,28 @@ function Card() {
   return (
     <div className="card-event">
       <div className="row">
-        <div className="col text-center">
+        <div className="col text-center mt-5">
           <h1 className="content">Sự kiện sôi nổi</h1>
         </div>
       </div>
-      <div className="row mt-5 ms-5">
-        <div className="col col-1 previous-buttons">
+      <div className="row mt-5">
+        <div className="col col-1 text-center previous-buttons">
           <button className="slider-button previous-button" onClick={previous}>
-            Previous
+            <i className="bi bi-caret-left-fill"></i>
           </button>
         </div>
         <div className="col col-10">
           <Slider ref={sliderRef} {...settings}>
             {events && events.length ? (
-              events.map((event) => (
-                <Information key={event.id} event={event} />
-              ))
+              events.map((event) => <CardEvent key={event.id} event={event} />)
             ) : (
               <h2 className="no-events text-center">There are no events</h2>
             )}
           </Slider>
         </div>
-        <div className="col col-1 next-buttons">
+        <div className="col col-1 text-center next-buttons">
           <button className="slider-button next-button" onClick={next}>
-            Next
+            <i className="bi bi-caret-right-fill" />
           </button>
         </div>
       </div>
@@ -93,4 +91,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default Event;

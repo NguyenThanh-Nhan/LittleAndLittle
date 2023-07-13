@@ -1,13 +1,13 @@
 import React from "react";
 import { NewEventType } from "../../types/event";
-import "../Information/Information.css";
+import "./CardEvent.css";
+import { Link } from "react-router-dom";
 
 interface IProps {
   event: NewEventType;
   detailsPage?: boolean;
 }
-function Information({ event, detailsPage }: IProps) {
-  
+function CardEvent({ event, detailsPage }: IProps) {
   console.log(event, "event");
   return (
     <div className="card">
@@ -26,14 +26,16 @@ function Information({ event, detailsPage }: IProps) {
           </p>
         </div>
         <div className="price">
-          <p>{event.price}</p>
+          <p>{event.price} VNĐ</p>
         </div>
-        <button type="button" className="button-sen">
-          Xem chi tiết
-        </button>
+        <Link to={`/events/${event.id}`}>
+          <button type="button" className="button-sen">
+            Xem chi tiết
+          </button>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Information;
+export default CardEvent;

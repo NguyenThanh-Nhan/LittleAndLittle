@@ -1,16 +1,31 @@
 import React from "react";
 import "../Home/Home.css";
+import { balloon1, balloon2, balloon3, balloon4, balloon5, group, lisa, logo2 } from "../../assect/img/1index";
 
 export const Home = () => {
   return (
-    <div className="home_bg1">
+    <div className="home mt-5">
       <div className="row">
         <div className="col">
-          <p className="text-lable1">ĐẦM SEN</p>
-          <p className="text-lable2">PARK</p>
+          <div className="row group1">
+            <div className="col col-2">
+              <img src={logo2} alt="" className="img-logo2" />
+            </div>
+            <div className="col col-2">
+              <p className="text-lable1">ĐẦM SEN</p>
+              <p className="text-lable2">PARK</p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="row">
+        <img src={group} alt="" className="group-img" />
+        <img src={lisa} alt="" className="lisa-img" />
+        <img src={balloon1} alt="" className="balloon1-img" />
+        <img src={balloon2} alt="" className="balloon2-img" />
+        <img src={balloon3} alt="" className="balloon3-img" />
+        <img src={balloon4} alt="" className="balloon4-img" />
+        <img src={balloon5} alt="" className="balloon5-img" />
         <div className="col">
           <div className="note-book1">
             <p className="lorem-ipsum-dolor mt-5 ms-4">
@@ -22,21 +37,21 @@ export const Home = () => {
               Suspendisse iaculis libero lobortis condimentum gravida. Aenean
               auctor iaculis risus, lobortis molestie lectus consequat a.
             </p>
-            <p className="text-wrapper mt-5 ms-4">
+            <p className="text-wrapper ms-4">
               <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
               consectetur adipiscing elit.
             </p>
-            <p className="text-wrapper mt-5 ms-4">
-              <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
-            </p>
-
-            <p className="text-wrapper mt-5 ms-4">
+            <p className="text-wrapper ms-4">
               <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
               consectetur adipiscing elit.
             </p>
 
-            <p className="text-wrapper mt-5 ms-4">
+            <p className="text-wrapper ms-4">
+              <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.
+            </p>
+
+            <p className="text-wrapper ms-4">
               <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
               consectetur adipiscing elit.
             </p>

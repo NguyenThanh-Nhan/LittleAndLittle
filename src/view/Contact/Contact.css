@@ -1,14 +1,4 @@
- .contact_bg1{
-  background-color: #FFA12C;
-  width: 1800px;
-  height: 950px;
-  margin-left: 73px;
-  position: relative;
-  z-index: 1;
-  border: 50px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-} 
+
 /* .contact_bg2{
   background-color: #ffa12c;
   width: 1800px;
@@ -52,7 +42,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
-  opacity: 0.699999988079071;
+ margin-top: -00px;
 }
 .note-name {
   background-color: #ffffff;

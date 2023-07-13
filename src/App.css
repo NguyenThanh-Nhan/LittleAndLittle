@@ -2,7 +2,22 @@
   width: 1920px;
   height: 1080px;
   background-color: #ff8b2c;
+  position: absolute;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   z-index: 1;
+}
+.app-bg {
+  background-color: #FFC500;
+  width: 1820px;
+  height: 1040px;
+  z-index: 2;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-left: 45px;
+
+}
+.navbar-wrapper{
+  position: absolute;
+  z-index: 3;
 }
