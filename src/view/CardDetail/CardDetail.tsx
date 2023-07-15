@@ -49,7 +49,7 @@ function CardDetail({ event, detailsPage }: IProps) {
             <div className="row mt-5">
               <img src={event.imagedetail1} alt="" className="imagedetail" />
             </div>
-            <div className="row">
+            <div className="row mt-3">
               <p className="description23">{event.description2}</p>
             </div>
           </div>

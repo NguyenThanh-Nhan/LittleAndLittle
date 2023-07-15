@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Event.css";
 import CardEvent from "../CardEvent/CardEvent";
+import { flagsleft, flagsright } from "../../assect/img/1index";
 
 function Event() {
   const [events, setEvents] = useState<NewEventType[]>([]);
@@ -62,8 +63,14 @@ function Event() {
   return (
     <div className="card-event">
       <div className="row">
-        <div className="col text-center mt-5">
-          <h1 className="content">Sự kiện sôi nổi</h1>
+        <div className="col col-3">
+          <img src={flagsleft} alt="" className="event-flagsleft" />
+        </div>
+        <div className="col text-center mt-5 col-6">
+          <h1 className="content">Sự kiện nổi bật</h1>
+        </div>
+        <div className="col col-3">
+          <img src={flagsright} alt="" className="event-flagsright"/>
         </div>
       </div>
       <div className="row mt-5">

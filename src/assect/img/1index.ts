@@ -10,6 +10,14 @@ export const balloon4 = require("./balloon4.png");
 export const balloon5 = require("./balloon5.png");
 //img contact
 export const alex = require("./alex.png");
+export const sadface = require("./sadface.png");
 //img event
 export const flagsleft = require("./flagsleft.png");
 export const flagsright = require("./flagsright.png");
+//img home
+export const calendar = require("./calendar.png");
+//img pay
+export const trini = require("./trini.png");
+export const vector = require("./vector.png");
+export const group3 = require("./group-3.png");
+export const group4 = require("./group-4.png");

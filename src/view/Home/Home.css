@@ -80,6 +80,14 @@
   margin-top: -670px;
   margin-left: -1220px;
 }
+.button_dropdow {
+  width: 50px;
+  height: 50px;
+  color: white;
+  font-size: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 0px #ffd27b;
+}
 /* nodebook */
 .note-book1 {
   background-image: url(../../assect/img/group-1.png);
@@ -149,9 +157,12 @@
   top: 0;
   width: 163px;
 }
-.bi-calendar3 {
-  color: orange;
-  font-size: 35px;
+.img_calendar {
+  background-color: orange;
+  width: 50px;
+  height: 50px;
+ border-radius: 15px;
+  box-shadow: 0px 5px 0px #ffd27b;
 }
 .note-wrapper2 {
   background-color: #ffffff;
@@ -163,21 +174,23 @@
   top: 0;
   width: 410px;
 }
-.btn-put {
+.button_put {
   margin-top: 20px;
   margin-left: 60px;
   background-color: #ff000a;
   color: white;
-  font-family: "iCiel Koni-Black", Helvetica;
   font-size: 30px;
   width: 300px;
   height: 70px;
-  left: 0;
-  letter-spacing: 0;
-  line-height: normal;
-  top: 0;
-  border-radius: 15px;
+  position: absolute;
   box-shadow: 10px 10px 10px #bd000b;
-  color: var(--w, #fff);
   font-family: iCiel Koni;
+  border-radius: 10px;
 }
+
+.button_put:hover {
+  background-color: #ff000a;
+  border: none;
+  color: white;
+}
+

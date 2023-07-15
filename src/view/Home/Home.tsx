@@ -1,8 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Home/Home.css";
-import { balloon1, balloon2, balloon3, balloon4, balloon5, group, lisa, logo2 } from "../../assect/img/1index";
+import {
+  balloon1,
+  balloon2,
+  balloon3,
+  balloon4,
+  balloon5,
+  calendar,
+  group,
+  lisa,
+  logo2,
+} from "../../assect/img/1index";
+import { Dropdown } from "react-bootstrap";
 
 export const Home = () => {
+  const [inputValue, setInputValue] = useState("");
+
+  const updateInputValue = (value: string) => {
+    setInputValue(value);
+  };
+
   return (
     <div className="home mt-5">
       <div className="row">
@@ -63,41 +80,39 @@ export const Home = () => {
             <div className="row mt-5 ms-5">
               <div className="col">
                 <input
+                  id="family-package-input"
                   className="note-wrapper"
                   type="text"
-                  placeholder="Gói gia đình"
+                  placeholder="Chọn gói"
+                  value={inputValue}
                 />
               </div>
               <div className="col">
-                <div className="dropdown">
-                  <button
-                    className="btn btn-warning dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  ></button>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a className="dropdown-item" href="/">
-                        Action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="/">
-                        Another action
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="/">
-                        Something else here
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                <Dropdown>
+                  <Dropdown.Toggle
+                    variant="warning"
+                    className="button_dropdow"
+                    id="dropdown-basic"
+                  ></Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item
+                      href="#/action-1"
+                      onClick={() => updateInputValue("Gói gia đình")}
+                    >
+                      Gói gia đình
+                    </Dropdown.Item>
+                    <Dropdown.Item
+                      href="#/action-2"
+                      onClick={() => updateInputValue("Gói cá nhân")}
+                    >
+                      Gói cá nhân
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
             </div>
             <div className="row mt-3  ms-5">
-              <div className="col">
+              <div className="col ">
                 <input
                   className="note-wrapper1"
                   type="text"
@@ -107,12 +122,12 @@ export const Home = () => {
               <div className="col">
                 <input
                   className="note-wrapper1"
-                  type="text"
+                  type="date"
                   placeholder="Ngày sử dụng"
                 />
               </div>
               <div className="col">
-                <i className="bi bi-calendar3"></i>
+                <img src={calendar} alt="" className="img_calendar" />
               </div>
             </div>
             <div className="row mt-3  ms-5">
@@ -144,7 +159,7 @@ export const Home = () => {
             </div>
             <div className="row mt-5  ms-5">
               <div className="col">
-                <button type="button" className="btn btn-put">
+                <button type="button" className="btn button_put">
                   Đặt vé
                 </button>
               </div>
