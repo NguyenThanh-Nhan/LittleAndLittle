@@ -21,3 +21,7 @@ export const trini = require("./trini.png");
 export const vector = require("./vector.png");
 export const group3 = require("./group-3.png");
 export const group4 = require("./group-4.png");
+// img payment
+export const alvin = require("./alvin.png");
+//img card pay
+export const tick = require("./tick.png");

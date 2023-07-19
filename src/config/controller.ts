@@ -5,3 +5,5 @@ export const firestore = getFirestore(app);
 
 // EVENTS COLLECTION
 export const eventsCollection = collection(firestore, "events");
+// PAYS COLLECTION
+export const paysCollection = collection(firestore, "pays");

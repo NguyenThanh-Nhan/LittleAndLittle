@@ -29,14 +29,14 @@ function Contact() {
               <div className="row">
                 <div className="col col-4 mt-4 ms-5">
                   <input
-                    className="note-name"
+                    className="form-control  note-name"
                     type="text"
                     placeholder="Họ và tên"
                   />
                 </div>
-                <div className="col col-7 mt-4 ms-3">
+                <div className="col col-7 mt-4 ms-4">
                   <input
-                    className="note-email"
+                    className="form-control note-email"
                     type="text"
                     placeholder="Email"
                   />
@@ -45,24 +45,24 @@ function Contact() {
               <div className="row">
                 <div className="col col-4 mt-4 ms-5">
                   <input
-                    className="note-phone"
+                    className="form-control note-phone"
                     type="text"
                     placeholder="Số điện thoại"
                   />
                 </div>
-                <div className="col col-7 mt-4 ms-3">
+                <div className="col col-7 mt-4 ms-4">
                   <input
-                    className="note-address"
+                    className="form-control note-address"
                     type="text"
                     placeholder="Địa chỉ"
                   />
                 </div>
               </div>
               <div className="row">
-                <div className="col mt-4 ms-5">
+                <div className="col col-11 mt-4 ms-5">
                   <div className="input-group">
                     <textarea
-                      className="note-pad"
+                      className="form-control"
                       aria-label="With textarea"
                       placeholder="lời nhắn"
                     ></textarea>
@@ -71,13 +71,9 @@ function Contact() {
               </div>
               <div className="row mt-5">
                 <div className="col">
-                  <button
-                    type="button"
-                    className="button-send"
-                  >
+                  <button type="button" className="button-send">
                     Gửi liên hệ
                   </button>
-                
                 </div>
               </div>
             </div>

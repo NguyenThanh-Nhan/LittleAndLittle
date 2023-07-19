@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../Home/Home.css";
+import { Dropdown } from "react-bootstrap";
+
 import {
   balloon1,
   balloon2,
@@ -11,14 +13,49 @@ import {
   lisa,
   logo2,
 } from "../../assect/img/1index";
-import { Dropdown } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
-  const [inputValue, setInputValue] = useState("");
+  //event choose package
+  const [selectValue, setSelectValue] = useState("");
 
-  const updateInputValue = (value: string) => {
-    setInputValue(value);
+  const selectInputValue = (value: string) => {
+    setSelectValue(value);
   };
+
+  //event handlePayment
+  const navigate = useNavigate();
+
+ const handlePay = () => {
+   const phoneValue =
+     (document.getElementById("phone") as HTMLInputElement)?.value || "";
+   const emailValue =
+     (document.getElementById("email") as HTMLInputElement)?.value || "";
+   const quantityValue =
+     parseInt(
+       (document.getElementById("quantity") as HTMLInputElement)?.value || ""
+     ) || 0;
+   const fullNameValue =
+     (document.getElementById("fullName") as HTMLInputElement)?.value || "";
+   const dateValue =
+     (document.getElementById("date") as HTMLInputElement)?.value || "";
+
+   if (quantityValue < 1) {
+     alert("Số lượng vé không được nhỏ hơn 1");
+     return;
+   }
+
+   const queryParams = new URLSearchParams({
+     email: emailValue,
+     phone: phoneValue,
+     quantity: quantityValue.toString(),
+     fullName: fullNameValue,
+     date: dateValue,
+     select: selectValue,
+   });
+
+   navigate(`/pay?${queryParams}`);
+ };
 
   return (
     <div className="home mt-5">
@@ -80,11 +117,11 @@ export const Home = () => {
             <div className="row mt-5 ms-5">
               <div className="col">
                 <input
-                  id="family-package-input"
-                  className="note-wrapper"
+                  id="select"
+                  className="form-control note-wrapper"
                   type="text"
                   placeholder="Chọn gói"
-                  value={inputValue}
+                  value={selectValue}
                 />
               </div>
               <div className="col">
@@ -96,14 +133,14 @@ export const Home = () => {
                   ></Dropdown.Toggle>
                   <Dropdown.Menu>
                     <Dropdown.Item
-                      href="#/action-1"
-                      onClick={() => updateInputValue("Gói gia đình")}
+                      id="familypackage"
+                      onClick={() => selectInputValue("Gói gia đình")}
                     >
                       Gói gia đình
                     </Dropdown.Item>
                     <Dropdown.Item
-                      href="#/action-2"
-                      onClick={() => updateInputValue("Gói cá nhân")}
+                      id="singlepackage"
+                      onClick={() => selectInputValue("Gói cá nhân")}
                     >
                       Gói cá nhân
                     </Dropdown.Item>
@@ -114,16 +151,18 @@ export const Home = () => {
             <div className="row mt-3  ms-5">
               <div className="col ">
                 <input
-                  className="note-wrapper1"
-                  type="text"
+                  className="form-control note-wrapper1"
+                  type="number"
                   placeholder="Số lượng vé"
+                  id="quantity"
                 />
               </div>
               <div className="col">
                 <input
-                  className="note-wrapper1"
+                  className="form-control note-wrapper1"
                   type="date"
                   placeholder="Ngày sử dụng"
+                  id="date"
                 />
               </div>
               <div className="col">
@@ -133,33 +172,40 @@ export const Home = () => {
             <div className="row mt-3  ms-5">
               <div className="col">
                 <input
-                  className="note-wrapper2"
+                  className="form-control note-wrapper2"
                   type="text"
                   placeholder="Họ và tên"
+                  id="fullName"
                 />
               </div>
             </div>
             <div className="row mt-3  ms-5">
               <div className="col">
                 <input
-                  className="note-wrapper2"
+                  className="form-control note-wrapper2"
                   type="text"
                   placeholder="Số điện thoại"
+                  id="phone"
                 />
               </div>
             </div>
             <div className="row mt-3  ms-5">
               <div className="col">
                 <input
-                  className="note-wrapper2"
+                  className="form-control note-wrapper2"
                   type="text"
                   placeholder="Địa chỉ email"
+                  id="email"
                 />
               </div>
             </div>
             <div className="row mt-5  ms-5">
               <div className="col">
-                <button type="button" className="btn button_put">
+                <button
+                  type="button"
+                  className="btn button_put"
+                  onClick={handlePay}
+                >
                   Đặt vé
                 </button>
               </div>
