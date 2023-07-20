@@ -11,7 +11,7 @@ function Pay() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [date, setDate] = useState("");
   const [price, setPrice] = useState(0);
-     const [formattedDate, setFormattedDate] = useState(""); 
+  const [formattedDate, setFormattedDate] = useState("");
 
   const location = useLocation();
 
@@ -21,7 +21,7 @@ function Pay() {
     setPhone(searchParams.get("phone") || "");
     setQuantity(searchParams.get("quantity") || "");
     setFullName(searchParams.get("fullName") || "");
-  
+
     setDate(searchParams.get("date") || "");
 
     // Format date as "dd/mm/yyyy"

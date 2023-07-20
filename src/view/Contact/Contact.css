@@ -221,3 +221,23 @@
 .mod_head {
   margin-top: 20px;
 }
+.modal_error{
+color: var(--text, #23221F);
+/* 20 medium */
+font-family: Montserrat;
+font-size: 30px;
+font-style: normal;
+font-weight: 500;
+line-height: 40px; /* 150% */
+text-align: center;
+}
+.modal_success{
+  text-align: center;
+  color: var(--text, #23221F);
+/* 20 medium */
+font-family: Montserrat;
+font-size: 30px;
+font-style: normal;
+font-weight: 500;
+line-height: 40px; /* 150% */
+}

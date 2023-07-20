@@ -1,10 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Contact/Contact.css";
 import { alex } from "../../assect/img/1index";
+import { addContact } from "../../config/controller";
+import { Modal } from "react-bootstrap";
+
 
 function Contact() {
+  const [fullName, setFullName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [note, setNote] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [errorModalOpen, setErrorModalOpen] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+
+  // Modal close handlers
+  const closeErrorModal = () => setErrorModalOpen(false);
+  const closeSuccessModal = () => setSuccessModalOpen(false);
+
+
+  // Form submission handler
+  const addNewContact = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Validate input fields
+    if (
+      fullName.length === 0 ||
+      fullName.length > 200 ||
+      phone.length !== 10 ||
+      !email.match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g) ||
+      address.length === 0 ||
+      address.length > 200
+    ) {
+      // Show error modal if any input is invalid
+      setErrorModalOpen(true);
+      return;
+    }
+    // Handle successful form submission
+    addContact({ fullName, note, phone, email, address });
+    setSuccessModalOpen(true);
+  };
   return (
     <div className="contact">
+      <Modal show={errorModalOpen} onHide={closeErrorModal} centered >
+        <Modal.Body className="modal_error">
+         Dữ liệu nhập vào không hợp lệ vui lòng nhập lại hoặc thử lại sau!
+        </Modal.Body>
+      </Modal>
+
+      <Modal show={successModalOpen} onHide={closeSuccessModal} centered>
+        <Modal.Body
+          className="modal_success"
+        >
+          Gửi liên hệ thành công. Vui lòng kiên nhẫn đợi phản hồi từ chúng tôi,
+          bạn nhé!
+        </Modal.Body>
+      </Modal>
       <div className="row">
         <div className="col text-center mt-5">
           <p className="lable-1">Liên Hệ</p>
@@ -26,56 +76,66 @@ function Contact() {
                   </p>
                 </div>
               </div>
-              <div className="row">
-                <div className="col col-4 mt-4 ms-5">
-                  <input
-                    className="form-control  note-name"
-                    type="text"
-                    placeholder="Họ và tên"
-                  />
-                </div>
-                <div className="col col-7 mt-4 ms-4">
-                  <input
-                    className="form-control note-email"
-                    type="text"
-                    placeholder="Email"
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col col-4 mt-4 ms-5">
-                  <input
-                    className="form-control note-phone"
-                    type="text"
-                    placeholder="Số điện thoại"
-                  />
-                </div>
-                <div className="col col-7 mt-4 ms-4">
-                  <input
-                    className="form-control note-address"
-                    type="text"
-                    placeholder="Địa chỉ"
-                  />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col col-11 mt-4 ms-5">
-                  <div className="input-group">
-                    <textarea
-                      className="form-control"
-                      aria-label="With textarea"
-                      placeholder="lời nhắn"
-                    ></textarea>
+              <form onSubmit={(e) => addNewContact(e)}>
+                <div className="row">
+                  <div className="col col-4 mt-4 ms-5">
+                    <input
+                      className="form-control  note-name"
+                      type="text"
+                      placeholder="Họ và tên"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                    />
+                  </div>
+                  <div className="col col-7 mt-4 ms-4">
+                    <input
+                      className="form-control note-email"
+                      type="text"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
                 </div>
-              </div>
-              <div className="row mt-5">
-                <div className="col">
-                  <button type="button" className="button-send">
-                    Gửi liên hệ
-                  </button>
+                <div className="row">
+                  <div className="col col-4 mt-4 ms-5">
+                    <input
+                      className="form-control note-phone"
+                      type="text"
+                      placeholder="Số điện thoại"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </div>
+                  <div className="col col-7 mt-4 ms-4">
+                    <input
+                      className="form-control note-address"
+                      type="text"
+                      placeholder="Địa chỉ"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
+                  </div>
                 </div>
-              </div>
+                <div className="row">
+                  <div className="col col-11 mt-4 ms-5">
+                    <div className="input-group">
+                      <textarea
+                        className="form-control"
+                        aria-label="With textarea"
+                        placeholder="lời nhắn"
+                        value={note}
+                        onChange={(e) => setNote(e.target.value)}
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5">
+                  <div className="col">
+                    <button className="button-send">Gửi liên hệ</button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
