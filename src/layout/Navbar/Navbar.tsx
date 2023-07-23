@@ -1,49 +1,42 @@
 import React from "react";
-// import { Link } from "react-router-dom";
 import "../Navbar/Navbar.css";
-import { Link } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { logo1 } from "../../assect/img/1index";
 
-function Navbar() {
-  return (
-    <div className="navbar_bg">
-      <div className="row">
-        <div className="col col-4 text-center img-icon1">
-          <img src={logo1} alt="" />
-        </div>
-        <div className="col col-6">
-          <div className="row">
-            <div className="col text-end">
-              <Link to="/" className="nav-link">
-                <button className="nav-bt" type="button">
+function Navbar (){
+    return (
+      <div className="navbar_bg">
+        <div className="row">
+          <div className="col col-4 text-center img-icon1">
+            <img src={logo1} alt="" />
+          </div>
+          <div className="col col-6">
+            <div className="row nav-group ">
+              <div className="col">
+                <NavLink to="/home" className="header-nav">
                   Trang chủ
-                </button>
-              </Link>
-            </div>
-            <div className="col">
-              <Link to="/events" className="nav-link">
-                <button className="nav-bt" type="button">
+                </NavLink>
+              </div>
+              <div className="col">
+                <NavLink to="/events" className="header-nav">
                   Sự kiện
-                </button>
-              </Link>
-            </div>
-            <div className="col">
-              <Link to="/contact" className="nav-link">
-                <button className="nav-bt" type="button">
+                </NavLink>
+              </div>
+              <div className="col">
+                <NavLink to="/contact" className="header-nav">
                   Liên hệ
-                </button>
-              </Link>
+                </NavLink>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col col-2 ">
-          <p className="nav-contat">
-            <i className="bi bi-telephone-fill"></i>0123456789
-          </p>
+          <div className="col col-2 ">
+            <p className="nav-contat">
+              <i className="bi bi-telephone-fill"></i>0123456789
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default Navbar;

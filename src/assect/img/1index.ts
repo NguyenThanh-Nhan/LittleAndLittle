@@ -8,6 +8,8 @@ export const balloon2 = require("./balloon2.png");
 export const balloon3 = require("./balloon3.png");
 export const balloon4 = require("./balloon4.png");
 export const balloon5 = require("./balloon5.png");
+export const group5 = require("./group-5.png");
+export const frame = require("./frame.png");
 //img contact
 export const alex = require("./alex.png");
 export const sadface = require("./sadface.png");

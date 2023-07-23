@@ -13,6 +13,10 @@ export const paysCollection = collection(firestore, "pays");
 export const contactsCollection = collection(firestore, "contacts");
 
 
+//  BANKCARDS CONLECTTION
+export const bankcardsCollection = collection(firestore, "bankcards");
+
+
 // ADD A NEW CONTACT 
 export const addContact = async (contactData: AddContactType) => {
     const newContact = await addDoc(contactsCollection, { ...contactData });
