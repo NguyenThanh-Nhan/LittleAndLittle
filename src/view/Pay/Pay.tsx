@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
-import { group3, group4, trini, vector } from "../../assect/img/1index";
+import {
+  group3,
+  group4,
+  sadface,
+  trini,
+  vector,
+} from "../../assect/img/1index";
 import "../Pay/Pay.css";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Modal } from "react-bootstrap";
 
 function Pay() {
   const [email, setEmail] = useState("");
@@ -12,8 +19,44 @@ function Pay() {
   const [date, setDate] = useState("");
   const [price, setPrice] = useState(0);
   const [formattedDate, setFormattedDate] = useState("");
-
   const location = useLocation();
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+
+  // Define the missing variables
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardname, setcardname] = useState("");
+  const [expirationDate, setExpirationDate] = useState("");
+  const [cvv, setCvv] = useState("");
+
+  const fakeBankCard = {
+    cardNumber: "0123456789101112",
+    cardName: "NGUYEN THANH NHAN",
+    expirationDate: "12/2025",
+    cvv: "123",
+  };
+  const formatCardNumber = (input: string) => {
+    const cardNumberChunks = input.match(/.{1,4}/g);
+    if (cardNumberChunks) {
+      return cardNumberChunks.join(" ");
+    } else {
+      return input;
+    }
+  };
+
+  const handlePayment = () => {
+    // Check if the entered card details match the fake bank card
+    if (
+      cardNumber === fakeBankCard.cardNumber &&
+      cardname === fakeBankCard.cardName &&
+      expirationDate === fakeBankCard.expirationDate &&
+      cvv === fakeBankCard.cvv
+    ) {
+      navigate("/payment");
+    } else {
+      setShowModal(true);
+    }
+  };
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
@@ -48,139 +91,192 @@ function Pay() {
           <p className="lab_pay">Thanh toán</p>
         </div>
       </div>
-      <div className="row mt-5">
-        <div className="col col-1">
-          <img src={trini} alt="" className="trini-img" />
-        </div>
-        <div className="col col-6 bg_note1">
-          <img src={group3} alt="" className="group3_img" />
-          <div className="bg_note2">
-            <div className="row ms-5 mt-5">
-              <div className="col col-4 mt-5">
-                <label htmlFor="exampleInputPrice" className="form-label">
-                  Số tiền thanh toán
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="price"
-                  value={price}
-                />
+      <form>
+        <div className="row mt-5">
+          <div className="col col-1">
+            <img src={trini} alt="" className="trini-img" />
+          </div>
+          <div className="col col-6 bg_note1">
+            <img src={group3} alt="" className="group3_img" />
+            <div className="bg_note2">
+              <div className="row ms-5 mt-5">
+                <div className="col col-4 mt-5">
+                  <label htmlFor="exampleInputPrice" className="form-label">
+                    Số tiền thanh toán
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="price"
+                    value={price}
+                  />
+                </div>
+                <div className="col col-2 mt-5">
+                  <label htmlFor="exampleInputQuantity" className="form-label">
+                    Số lượng
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="quantity"
+                    value={quantity}
+                  />
+                </div>
+                <div className="col col-4 mt-5">
+                  <label htmlFor="exampleInputDate" className="form-label">
+                    Ngày sử dụng
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="date"
+                    value={formattedDate}
+                  />
+                </div>
               </div>
-              <div className="col col-2 mt-5">
-                <label htmlFor="exampleInputQuantity" className="form-label">
-                  Số lượng
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="quantity"
-                  value={quantity}
-                />
+              <div className="row ms-5 form_control">
+                <div className="col col-6">
+                  <label htmlFor="exampleInputInf" className="form-label">
+                    Thông tin liên hệ
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="fullName"
+                    value={fullName}
+                  />
+                </div>
               </div>
-              <div className="col col-4 mt-5">
-                <label htmlFor="exampleInputDate" className="form-label">
-                  Ngày sử dụng
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="date"
-                  value={formattedDate}
-                />
+              <div className="row ms-5 form_control">
+                <div className="col col-4">
+                  <label htmlFor="exampleInputPhone" className="form-label">
+                    Số điện thoại
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="phone"
+                    value={phone}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row ms-5 form_control">
-              <div className="col col-6">
-                <label htmlFor="exampleInputInf" className="form-label">
-                  Thông tin liên hệ
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="fullName"
-                  value={fullName}
-                />
-              </div>
-            </div>
-            <div className="row ms-5 form_control">
-              <div className="col col-4">
-                <label htmlFor="exampleInputPhone" className="form-label">
-                  Số điện thoại
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="phone"
-                  value={phone}
-                />
-              </div>
-            </div>
-            <div className="row ms-5 form_control">
-              <div className="col col-6">
-                <label htmlFor="exampleInputEmail" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="email"
-                  value={email}
-                />
+              <div className="row ms-5 form_control">
+                <div className="col col-6">
+                  <label htmlFor="exampleInputEmail" className="form-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="email"
+                    value={email}
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="col col-1">
-          <img src={vector} alt="" className="vector_img" />
-          <img src={group4} alt="" className="group4_img" />
-        </div>
-        <div className="col col-4 bg_note3">
-          <div className="bg_note4">
-            <div className="row mt-5">
-              <div className="col col-10 ms-5 mt-5">
-                <label htmlFor="exampleInputNumber" className="form-label">
-                  Số thẻ
-                </label>
-                <input type="text" className="form-control" />
+          <div className="col col-1">
+            <img src={vector} alt="" className="vector_img" />
+            <img src={group4} alt="" className="group4_img" />
+          </div>
+          <div className="col col-4 bg_note3">
+            <div className="bg_note4">
+              <div className="row mt-5">
+                <div className="col col-10 ms-5 mt-5">
+                  <label htmlFor="exampleInputNumber" className="form-label">
+                    Số thẻ
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cardnumber"
+                    value={formatCardNumber(cardNumber)} // Format the card number in the input field
+                    onChange={(e) =>
+                      setCardNumber(e.target.value.replace(/\s/g, ""))
+                    }
+                    autoComplete="off"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col col-10 ms-5">
-                <label htmlFor="exampleInputName" className="form-label">
-                  Họ tên chủ thẻ
-                </label>
-                <input type="text" className="form-control" />
+              <div className="row">
+                <div className="col col-10 ms-5">
+                  <label htmlFor="exampleInputName" className="form-label">
+                    Họ tên chủ thẻ
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cardname"
+                    value={cardname}
+                    onChange={(e) => setcardname(e.target.value.toUpperCase())}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col col-8 ms-5">
-                <label htmlFor="exampleInputNumber" className="form-label">
-                  Ngày hết hạn
-                </label>
-                <input type="text" className="form-control" />
+              <div className="row">
+                <div className="col col-8 ms-5">
+                  <label htmlFor="exampleInputDate" className="form-label">
+                    Ngày hết hạn
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="expirationdate"
+                    value={expirationDate}
+                    onChange={(e) => setExpirationDate(e.target.value)}
+                    autoComplete="off"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row">
-              <div className="col col-2 ms-5">
-                <label htmlFor="exampleInputNumber" className="form-label">
-                  CVV/CVC
-                </label>
-                <input type="password" className="form-control" />
+              <div className="row">
+                <div className="col col-2 ms-5">
+                  <label htmlFor="exampleInputNumber" className="form-label">
+                    CVV/CVC
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="cvv"
+                    value={cvv}
+                    onChange={(e) => setCvv(e.target.value)}
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-5 text-center">
-              <div className="col">
-                <Link to={`/payment`}>
-                  <button type="button" className="btn button_pay">
+              <div className="row mt-5 text-center">
+                <div className="col">
+                  <button
+                    type="button"
+                    className="btn button_pay"
+                    onClick={handlePayment}
+                  >
                     Thanh toán
                   </button>
-                </Link>
+                </div>
               </div>
             </div>
           </div>
+          {/* Modal for Payment Failure */}
+          <Modal
+            show={showModal}
+            onHide={() => setShowModal(false)}
+            aria-labelledby="contained-modal-title-vcenter"
+            centered
+          >
+            <Modal.Header className="modal_header">
+              <Modal.Title>
+                <img src={sadface} alt="" className="img-sadface"/>
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <p>Hình như đã có lỗi xảy ra khi thanh toán... </p>
+              <p>
+                Vui lòng kiểm tra lại thông tin liên hệ, thông tin thẻ và thử
+                lại.
+              </p>
+            </Modal.Body>
+          </Modal>
         </div>
-      </div>
+      </form>
     </div>
   );
 }

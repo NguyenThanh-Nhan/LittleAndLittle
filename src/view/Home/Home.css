@@ -35,6 +35,7 @@
   line-height: 100px;
   top: 0;
   white-space: nowrap;
+  margin-top: -30px;
 }
 .lisa-img {
   width: 380px;
@@ -75,10 +76,41 @@
   margin-left: 980px;
 }
 .balloon5-img {
-  width: 155px;
-  height: 210px;
-  margin-top: -670px;
-  margin-left: -1220px;
+  width: 175px;
+  height: 230px;
+  margin-top: -50px;
+  margin-left: -120px;
+  z-index: 4;
+  position: absolute;
+}
+.home_group5 {
+  width: 275px;
+  height: 71px;
+  margin-top: -50px;
+  position: absolute;
+  margin-left: 1280px;
+  margin-top: 30px;
+  z-index: 4;
+}
+.home_vector {
+  width: 141.041px;
+  height: 583.795px;
+  position: absolute;
+  margin-left: 1063px;
+  margin-top: 48px;
+}
+.balloon4-img{
+ width: 148px;
+height: 233px;
+  margin-top: -50px;
+  position: absolute;
+  margin-left: 1680px;
+  margin-top: 30px;
+  z-index: 4;
+}
+.frame{
+  width: 37px;
+height: 40px;
 }
 .button_dropdow {
   width: 50px;
@@ -87,6 +119,7 @@
   font-size: 30px;
   border-radius: 15px;
   box-shadow: 0px 5px 0px #ffd27b;
+  margin-top: 47px;
 }
 /* nodebook */
 .note-book1 {
@@ -120,6 +153,8 @@
   line-height: 30px;
   opacity: 0.7;
   top: 0;
+  margin-top: 50px;
+  margin-left: 50px;
 }
 .text-wrapper {
   color: #23221f;
@@ -132,6 +167,7 @@
   opacity: 0.8;
   top: 0;
   white-space: nowrap;
+  margin-left: 70px;
 }
 .note-wrapper {
   background-color: #ffffff;
@@ -161,7 +197,7 @@
   background-color: orange;
   width: 50px;
   height: 50px;
- border-radius: 15px;
+  border-radius: 15px;
   box-shadow: 0px 5px 0px #ffd27b;
 }
 .note-wrapper2 {
@@ -175,7 +211,7 @@
   width: 410px;
 }
 .button_put {
-  margin-top: 20px;
+  margin-top: -20px;
   margin-left: 60px;
   background-color: #ff000a;
   color: white;
@@ -193,4 +229,3 @@
   border: none;
   color: white;
 }
-

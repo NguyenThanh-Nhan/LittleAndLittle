@@ -9,9 +9,12 @@ import {
   balloon4,
   balloon5,
   calendar,
+  frame,
   group,
+  group5,
   lisa,
   logo2,
+  vector,
 } from "../../assect/img/1index";
 import { useNavigate } from "react-router-dom";
 
@@ -80,9 +83,11 @@ export const Home = () => {
         <img src={balloon3} alt="" className="balloon3-img" />
         <img src={balloon4} alt="" className="balloon4-img" />
         <img src={balloon5} alt="" className="balloon5-img" />
+        <img src={vector} alt="" className="home_vector" />
+        <img src={group5} alt="" className="home_group5" />
         <div className="col">
           <div className="note-book1">
-            <p className="lorem-ipsum-dolor mt-5 ms-4">
+            <p className="lorem-ipsum-dolor">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Suspendisse ac mollis justo. Etiam volutpat tellus quis risus
               volutpat, ut posuere ex facilisis.
@@ -91,22 +96,22 @@ export const Home = () => {
               Suspendisse iaculis libero lobortis condimentum gravida. Aenean
               auctor iaculis risus, lobortis molestie lectus consequat a.
             </p>
-            <p className="text-wrapper ms-4">
-              <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
+            <p className="text-wrapper">
+              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit.
             </p>
-            <p className="text-wrapper ms-4">
-              <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
+            <p className="text-wrapper">
+              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit.
+            </p>
+
+            <p className="text-wrapper">
+               <img src={frame} alt="" className="frame"/> Lorem ipsum dolor sit amet,
               consectetur adipiscing elit.
             </p>
 
-            <p className="text-wrapper ms-4">
-              <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
-            </p>
-
-            <p className="text-wrapper ms-4">
-              <i className="bi bi-star-fill"></i> Lorem ipsum dolor sit amet,
+            <p className="text-wrapper">
+               <img src={frame} alt="" className="frame"/> Lorem ipsum dolor sit amet,
               consectetur adipiscing elit.
             </p>
           </div>
@@ -115,7 +120,7 @@ export const Home = () => {
         <div className="col">
           <div className="note-book2">
             <div className="row mt-5 ms-5">
-              <div className="col">
+              <div className="col mt-5">
                 <input
                   id="select"
                   className="form-control note-wrapper"
