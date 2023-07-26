@@ -224,8 +224,3 @@ height: 40px;
   border-radius: 10px;
 }
 
-.button_put:hover {
-  background-color: #ff000a;
-  border: none;
-  color: white;
-}

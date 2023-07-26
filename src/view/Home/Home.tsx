@@ -18,10 +18,10 @@ import {
 } from "../../assect/img/1index";
 import { useNavigate } from "react-router-dom";
 
+
 export const Home = () => {
   //event choose package
   const [selectValue, setSelectValue] = useState("");
-
   const selectInputValue = (value: string) => {
     setSelectValue(value);
   };
@@ -29,36 +29,36 @@ export const Home = () => {
   //event handlePayment
   const navigate = useNavigate();
 
- const handlePay = () => {
-   const phoneValue =
-     (document.getElementById("phone") as HTMLInputElement)?.value || "";
-   const emailValue =
-     (document.getElementById("email") as HTMLInputElement)?.value || "";
-   const quantityValue =
-     parseInt(
-       (document.getElementById("quantity") as HTMLInputElement)?.value || ""
-     ) || 0;
-   const fullNameValue =
-     (document.getElementById("fullName") as HTMLInputElement)?.value || "";
-   const dateValue =
-     (document.getElementById("date") as HTMLInputElement)?.value || "";
+  const handlePay = () => {
+    const phoneValue =
+      (document.getElementById("phone") as HTMLInputElement)?.value || "";
+    const emailValue =
+      (document.getElementById("email") as HTMLInputElement)?.value || "";
+    const quantityValue =
+      parseInt(
+        (document.getElementById("quantity") as HTMLInputElement)?.value || ""
+      ) || 0;
+    const fullNameValue =
+      (document.getElementById("fullName") as HTMLInputElement)?.value || "";
+    const dateValue =
+      (document.getElementById("date") as HTMLInputElement)?.value || "";
 
-   if (quantityValue < 1) {
-     alert("Số lượng vé không được nhỏ hơn 1");
-     return;
-   }
+    if (quantityValue < 1) {
+      alert("Số lượng vé không được nhỏ hơn 1");
+      return;
+    }
 
-   const queryParams = new URLSearchParams({
-     email: emailValue,
-     phone: phoneValue,
-     quantity: quantityValue.toString(),
-     fullName: fullNameValue,
-     date: dateValue,
-     select: selectValue,
-   });
+    const queryParams = new URLSearchParams({
+      email: emailValue,
+      phone: phoneValue,
+      quantity: quantityValue.toString(),
+      fullName: fullNameValue,
+      date: dateValue,
+      select: selectValue,
+    });
 
-   navigate(`/pay?${queryParams}`);
- };
+    navigate(`/pay?${queryParams}`);
+  };
 
   return (
     <div className="home mt-5">
@@ -106,13 +106,13 @@ export const Home = () => {
             </p>
 
             <p className="text-wrapper">
-               <img src={frame} alt="" className="frame"/> Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
+              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit.
             </p>
 
             <p className="text-wrapper">
-               <img src={frame} alt="" className="frame"/> Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit.
+              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
+              amet, consectetur adipiscing elit.
             </p>
           </div>
         </div>

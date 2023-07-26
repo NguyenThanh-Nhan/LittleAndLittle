@@ -52,7 +52,7 @@ function Pay() {
       expirationDate === fakeBankCard.expirationDate &&
       cvv === fakeBankCard.cvv
     ) {
-      navigate("/payment");
+        navigate(`/payment?quantity=${quantity}`);
     } else {
       setShowModal(true);
     }

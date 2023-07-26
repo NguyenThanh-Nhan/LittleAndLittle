@@ -70,7 +70,7 @@ function Event() {
           <h1 className="content">Sự kiện nổi bật</h1>
         </div>
         <div className="col col-3">
-          <img src={flagsright} alt="" className="event-flagsright"/>
+          <img src={flagsright} alt="" className="event-flagsright" />
         </div>
       </div>
       <div className="row mt-5">
@@ -81,11 +81,11 @@ function Event() {
         </div>
         <div className="col col-10">
           <Slider ref={sliderRef} {...settings}>
-            {events && events.length ? (
-              events.map((event) => <CardEvent key={event.id} event={event} />)
-            ) : (
-              <h2 className="no-events text-center">There are no events</h2>
-            )}
+            {events && events.length
+              ? events.map((event) => (
+                  <CardEvent key={event.id} event={event} />
+                ))
+              : null}
           </Slider>
         </div>
         <div className="col col-1 text-center next-buttons">

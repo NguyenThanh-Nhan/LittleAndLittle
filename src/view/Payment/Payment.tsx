@@ -6,11 +6,16 @@ import Slider from "react-slick";
 import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
 import { paysCollection } from "../../config/controller";
 import CardPay from "../CardPay/CardPay";
+import { useLocation } from "react-router-dom";
 
 function Payment() {
   const [pays, setPays] = useState<NewPayType[]>([]);
-  const sliderRef = useRef<Slider>(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const sliderRef = useRef<Slider>(null);
+
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const selectedQuantity = parseInt(queryParams.get("quantity") || "0");
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -32,12 +37,14 @@ function Payment() {
 
   const previous = () => {
     sliderRef.current?.slickPrev();
-  setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
   const next = () => {
-    sliderRef.current?.slickNext();
- setCurrentPage((prevPage) => Math.min(prevPage + 1, getTotalPages()));
+    if (currentPage < Math.ceil(filteredPays.length / slidesToShow)) {
+      sliderRef.current?.slickNext();
+      setCurrentPage((prevPage) => Math.min(prevPage + 1, getTotalPages()));
+    }
   };
 
   const settings = {
@@ -62,12 +69,25 @@ function Payment() {
   };
   const getTotalPages = () => {
     if (pays.length === 0) {
-      return 1; // If there are no pays, return 1 as the total number of pages
+      return 1;
     }
     return Math.ceil(pays.length / settings.slidesToShow);
   };
 
-  const totalPages = getTotalPages();
+  
+
+  const slidesToShow =
+    selectedQuantity >= settings.slidesToShow
+      ? settings.slidesToShow
+      : selectedQuantity;
+
+  const slidesToScroll =
+    selectedQuantity >= settings.slidesToScroll
+      ? settings.slidesToScroll
+      : selectedQuantity;
+
+  const filteredPays = pays.slice(0, selectedQuantity);
+
   return (
     <div className="bg_payment">
       <div className="row">
@@ -93,16 +113,17 @@ function Payment() {
                 </button>
               </div>
               <div className="col col-10">
-                <Slider ref={sliderRef} {...settings}>
-                  {pays && pays.length ? (
-                    pays.map((pay, index) => (
-                      <CardPay key={pay.idqr} pay={pay} />
-                    ))
-                  ) : (
-                    <h2 className="no-events text-center">
-                      There are no events
-                    </h2>
-                  )}
+                <Slider
+                  ref={sliderRef}
+                  {...settings}
+                  slidesToShow={slidesToShow}
+                  slidesToScroll={slidesToScroll}
+                >
+                  {filteredPays.length
+                    ? filteredPays.map((pay) => (
+                        <CardPay key={pay.idqr} pay={pay} />
+                      ))
+                    : null}
                 </Slider>
               </div>
               <div className="col col-1 text-center next-buttons">
@@ -115,12 +136,13 @@ function Payment() {
               <div className="col col-1"></div>
               <div className="col col-5">
                 <p className="totalcard text-start">
-                  Số lượng: {pays ? pays.length : 0} Vé
+                  Số lượng: {filteredPays.length} Vé
                 </p>
               </div>
               <div className="col col-5">
                 <p className="pagepay text-end">
-                  Trang {currentPage}/{totalPages}
+                  Trang {currentPage}/
+                  {Math.ceil(filteredPays.length / slidesToShow)}
                 </p>
               </div>
             </div>
