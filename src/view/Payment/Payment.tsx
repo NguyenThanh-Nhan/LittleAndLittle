@@ -7,6 +7,7 @@ import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
 import { paysCollection } from "../../config/controller";
 import CardPay from "../CardPay/CardPay";
 import { useLocation } from "react-router-dom";
+import html2canvas from "html2canvas";
 
 function Payment() {
   const [pays, setPays] = useState<NewPayType[]>([]);
@@ -88,6 +89,32 @@ function Payment() {
 
   const filteredPays = pays.slice(0, selectedQuantity);
 
+  const downloadAllCards = () => {
+    // Lấy ra tất cả các phần tử CardPay hiển thị trong Slider
+    const cardPayElements = document.querySelectorAll(".card-pay");
+
+    // Tạo mảng promises để chứa tất cả các promise của html2canvas
+    const promises = Array.from(cardPayElements).map(
+      (cardPayElement) => html2canvas(cardPayElement as HTMLElement) // Explicitly cast to HTMLElement
+    );
+
+    // Chạy tất cả các promise và sau khi hoàn thành, tạo liên kết tải về hình ảnh
+    Promise.all(promises).then((canvasElements) => {
+      const imageUrls = canvasElements.map((canvasElement, index) => {
+        const imageURL = canvasElement.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.download = `card_pay_${index}.png`;
+        link.href = imageURL;
+        link.click();
+        return imageURL;
+      });
+
+      // Xem URL hình ảnh trong console (tùy chọn)
+      console.log(imageUrls);
+    });
+  };
+
+
   return (
     <div className="bg_payment">
       <div className="row">
@@ -151,7 +178,11 @@ function Payment() {
       </div>
       <div className="row mt-5">
         <div className="col text-end">
-          <button type="button" className="btn btn-danger">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={downloadAllCards}
+          >
             Tải vé
           </button>
         </div>
