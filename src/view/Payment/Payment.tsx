@@ -13,7 +13,6 @@ function Payment() {
   const [pays, setPays] = useState<NewPayType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const sliderRef = useRef<Slider>(null);
-
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const selectedQuantity = parseInt(queryParams.get("quantity") || "0");
@@ -49,21 +48,30 @@ function Payment() {
   };
 
   const settings = {
+    dots: true,
+    infinite: false,
     arrows: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    rows: 1,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: selectedQuantity,
+          col: 4,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
+          rows: selectedQuantity,
         },
       },
     ],
@@ -75,8 +83,6 @@ function Payment() {
     return Math.ceil(pays.length / settings.slidesToShow);
   };
 
-  
-
   const slidesToShow =
     selectedQuantity >= settings.slidesToShow
       ? settings.slidesToShow
@@ -86,34 +92,28 @@ function Payment() {
     selectedQuantity >= settings.slidesToScroll
       ? settings.slidesToScroll
       : selectedQuantity;
-
   const filteredPays = pays.slice(0, selectedQuantity);
 
   const downloadAllCards = () => {
-    // Lấy ra tất cả các phần tử CardPay hiển thị trong Slider
     const cardPayElements = document.querySelectorAll(".card-pay");
-
-    // Tạo mảng promises để chứa tất cả các promise của html2canvas
-    const promises = Array.from(cardPayElements).map(
-      (cardPayElement) => html2canvas(cardPayElement as HTMLElement) // Explicitly cast to HTMLElement
+    const promises = Array.from(cardPayElements).map((cardPayElement) =>
+      html2canvas(cardPayElement as HTMLElement)
     );
 
-    // Chạy tất cả các promise và sau khi hoàn thành, tạo liên kết tải về hình ảnh
     Promise.all(promises).then((canvasElements) => {
       const imageUrls = canvasElements.map((canvasElement, index) => {
-        const imageURL = canvasElement.toDataURL("image/png");
+        const imageURL = (canvasElement as HTMLCanvasElement).toDataURL(
+          "image/png"
+        );
         const link = document.createElement("a");
-        link.download = `card_pay_${index}.png`;
+        link.download = `ve_cong_${index}.png`;
         link.href = imageURL;
         link.click();
         return imageURL;
       });
-
-      // Xem URL hình ảnh trong console (tùy chọn)
       console.log(imageUrls);
     });
   };
-
 
   return (
     <div className="bg_payment">

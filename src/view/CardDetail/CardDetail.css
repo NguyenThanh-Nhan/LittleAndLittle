@@ -25,9 +25,9 @@
   border: dashed #ffb489;
 }
 .detail-img1 {
-  width: 411px;
-  height: 337px;
-  border-radius: 30px;
+  width: 450px;
+  height: 350px;
+  border-radius: 50px;
 }
 .bi-calendar4-week {
   color: #ffb809;
@@ -63,9 +63,9 @@
   line-height: 26px;
 }
 .imagedetail {
-  width: 411px;
+  width: 420px;
   height: 250px;
-  border-radius: 40px;
+  border-radius: 50px;
 }
 .description23 {
   color: #000;

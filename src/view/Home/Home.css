@@ -16,7 +16,7 @@
 }
 .text-lable1 {
   color: #ffffff;
-  font-family: "iCiel Koni-Black", Helvetica;
+  font-family: iCiel Koni;
   font-size: 72px;
   font-weight: 900;
   left: 0;
@@ -27,7 +27,7 @@
 }
 .text-lable2 {
   color: #ffffff;
-  font-family: "iCiel Koni-Black", Helvetica;
+  font-family: iCiel Koni;
   font-size: 72px;
   font-weight: 900;
   left: 0;
@@ -93,24 +93,25 @@
   z-index: 4;
 }
 .home_vector {
-  width: 141.041px;
-  height: 583.795px;
+  width: 145px;
+  height: 585px;
   position: absolute;
-  margin-left: 1063px;
+  margin-left: 1066px;
   margin-top: 48px;
+  z-index: 4;
 }
-.balloon4-img{
- width: 148px;
-height: 233px;
+.balloon4-img {
+  width: 148px;
+  height: 233px;
   margin-top: -50px;
   position: absolute;
   margin-left: 1680px;
   margin-top: 30px;
   z-index: 4;
 }
-.frame{
+.frame {
   width: 37px;
-height: 40px;
+  height: 40px;
 }
 .button_dropdow {
   width: 50px;
@@ -123,7 +124,8 @@ height: 40px;
 }
 /* nodebook */
 .note-book1 {
-  background-image: url(../../assect/img/group-1.png);
+  /* background-image: url(../../assect/img/group-1.png); */
+  background-color: #fde8b3;
   height: 585px;
   width: 950px;
   position: absolute;
@@ -131,17 +133,47 @@ height: 40px;
   left: 150px;
   z-index: 3;
   margin-top: 50px;
+  border-radius: 30px;
+  box-shadow: 0px 10px 5px #ffca7b;
+  border: none;
+}
+.note-book2 {
+  width: 925.608px;
+  height: 559.225px;
+  flex-shrink: 0;
+  background-color: #fff6d4;
+  border-radius: 30px;
+  margin-left: 10px;
+  border: dashed #ffb489;
+  margin-top: 12px;
 }
 
-.note-book2 {
-  background-image: url(../../assect/img/group-2.png);
-  height: 580px;
+.note-book3 {
+  /* background-image: url(../../assect/img/group-2.png); */
+  background-color: #fde8b3;
+  height: 585px;
   width: 540px;
   position: absolute;
   top: 300px;
   left: 1120px;
   z-index: 3;
   margin-top: 50px;
+  border-radius: 30px;
+  margin-left: 10px;
+  border-radius: 30px;
+  box-shadow: 0px 10px 5px #ffca7b;
+  border: none;
+}
+.note-book4 {
+  background-color: #fff6d4;
+  width: 511.979px;
+  height: 558.99px;
+  flex-shrink: 0;
+  background-color: #fff6d4;
+  border-radius: 30px;
+  margin-left: 10px;
+  border: dashed #ffb489;
+  margin-top: 12px;
 }
 .lorem-ipsum-dolor {
   color: #23221f;
@@ -210,9 +242,9 @@ height: 40px;
   top: 0;
   width: 410px;
 }
-.button_put {
+.btn_pt {
   margin-top: -20px;
-  margin-left: 60px;
+  margin-left: 110px;
   background-color: #ff000a;
   color: white;
   font-size: 30px;
@@ -223,4 +255,3 @@ height: 40px;
   font-family: iCiel Koni;
   border-radius: 10px;
 }
-

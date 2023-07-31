@@ -25,14 +25,14 @@ function Pay() {
 
   // Define the missing variables
   const [cardNumber, setCardNumber] = useState("");
-  const [cardname, setcardname] = useState("");
+  const [cardname, setCardName] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [cvv, setCvv] = useState("");
 
   const fakeBankCard = {
     cardNumber: "0123456789101112",
     cardName: "NGUYEN THANH NHAN",
-    expirationDate: "12/2025",
+    expirationDate: "12/25",
     cvv: "123",
   };
   const formatCardNumber = (input: string) => {
@@ -52,7 +52,7 @@ function Pay() {
       expirationDate === fakeBankCard.expirationDate &&
       cvv === fakeBankCard.cvv
     ) {
-        navigate(`/payment?quantity=${quantity}`);
+      navigate(`/payment?quantity=${quantity}`);
     } else {
       setShowModal(true);
     }
@@ -73,7 +73,7 @@ function Pay() {
     setFormattedDate(formattedDate);
     // Calculate price based on package type
     const packageType = searchParams.get("select");
-    const parsedQuantity = parseInt(searchParams.get("quantity") || "0");
+    const parsedQuantity = parseInt(quantity || "0");
 
     if (packageType === "Gói gia đình") {
       setPrice(parsedQuantity * 120000);
@@ -82,7 +82,7 @@ function Pay() {
     } else {
       setPrice(0);
     }
-  }, [location.search]);
+  }, [location.search, quantity]);
 
   return (
     <div className="bg-pay">
@@ -116,10 +116,11 @@ function Pay() {
                     Số lượng
                   </label>
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
                     id="quantity"
                     value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
                   />
                 </div>
                 <div className="col col-4 mt-5">
@@ -208,7 +209,7 @@ function Pay() {
                     className="form-control"
                     id="cardname"
                     value={cardname}
-                    onChange={(e) => setcardname(e.target.value.toUpperCase())}
+                    onChange={(e) => setCardName(e.target.value.toUpperCase())}
                     autoComplete="off"
                   />
                 </div>
@@ -264,7 +265,7 @@ function Pay() {
           >
             <Modal.Header className="modal_header">
               <Modal.Title>
-                <img src={sadface} alt="" className="img-sadface"/>
+                <img src={sadface} alt="" className="img-sadface" />
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>

@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React, { forwardRef, useState } from "react";
 import { NewPayType } from "../../types/pay";
 import "./CardPay.css";
 import { tick } from "../../assect/img/1index";
 
+
 interface IProps {
   pay: NewPayType;
 }
-function CardPay({ pay }: IProps) {
- const [imageLoaded, setImageLoaded] = useState(false);
+const CardPay = forwardRef<HTMLImageElement, IProps>(({ pay }, ref) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
 
- const handleImageLoad = () => {
-   setImageLoaded(true);
- };
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
   return (
     <div className="card card-pay">
       <img
+        ref={ref}
         src={pay.image}
         className={`img_cardpay ${imageLoaded ? "img_loaded" : ""}`}
         alt="eventImage"
         onLoad={handleImageLoad}
-       // Add this line to enable CORS for the images
       />
       <div className="card-body card_body_pay">
         <div className="idqr">
@@ -42,6 +43,6 @@ function CardPay({ pay }: IProps) {
       </div>
     </div>
   );
-}
+});
 
 export default CardPay;

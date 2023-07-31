@@ -17,7 +17,8 @@ import {
   vector,
 } from "../../assect/img/1index";
 import { useNavigate } from "react-router-dom";
-
+import "react-datepicker/dist/react-datepicker.css";
+import { DateSelector } from "../FormIk/DateSelector";
 
 export const Home = () => {
   //event choose package
@@ -47,7 +48,6 @@ export const Home = () => {
       alert("Số lượng vé không được nhỏ hơn 1");
       return;
     }
-
     const queryParams = new URLSearchParams({
       email: emailValue,
       phone: phoneValue,
@@ -87,132 +87,131 @@ export const Home = () => {
         <img src={group5} alt="" className="home_group5" />
         <div className="col">
           <div className="note-book1">
-            <p className="lorem-ipsum-dolor">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse ac mollis justo. Etiam volutpat tellus quis risus
-              volutpat, ut posuere ex facilisis.
-              <br />
-              <br />
-              Suspendisse iaculis libero lobortis condimentum gravida. Aenean
-              auctor iaculis risus, lobortis molestie lectus consequat a.
-            </p>
-            <p className="text-wrapper">
-              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit.
-            </p>
-            <p className="text-wrapper">
-              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit.
-            </p>
+            <div className="note-book2">
+              <p className="lorem-ipsum-dolor">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse ac mollis justo. Etiam volutpat tellus quis risus
+                volutpat, ut posuere ex facilisis.
+                <br />
+                <br />
+                Suspendisse iaculis libero lobortis condimentum gravida. Aenean
+                auctor iaculis risus, lobortis molestie lectus consequat a.
+              </p>
+              <p className="text-wrapper">
+                <img src={frame} alt="" className="frame" /> Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit.
+              </p>
+              <p className="text-wrapper">
+                <img src={frame} alt="" className="frame" /> Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit.
+              </p>
 
-            <p className="text-wrapper">
-              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit.
-            </p>
+              <p className="text-wrapper">
+                <img src={frame} alt="" className="frame" /> Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit.
+              </p>
 
-            <p className="text-wrapper">
-              <img src={frame} alt="" className="frame" /> Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit.
-            </p>
+              <p className="text-wrapper">
+                <img src={frame} alt="" className="frame" /> Lorem ipsum dolor
+                sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
           </div>
         </div>
 
         <div className="col">
-          <div className="note-book2">
-            <div className="row mt-5 ms-5">
-              <div className="col mt-5">
-                <input
-                  id="select"
-                  className="form-control note-wrapper"
-                  type="text"
-                  placeholder="Chọn gói"
-                  value={selectValue}
-                />
+          <div className="note-book3">
+            <div className="note-book4">
+              <div className="row mt-5 ms-5">
+                <div className="col mt-5">
+                  <input
+                    id="select"
+                    className="form-control note-wrapper"
+                    type="text"
+                    placeholder="Chọn gói"
+                    value={selectValue}
+                  />
+                </div>
+                <div className="col">
+                  <Dropdown>
+                    <Dropdown.Toggle
+                      variant="warning"
+                      className="button_dropdow"
+                      id="dropdown-basic"
+                    ></Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item
+                        id="familypackage"
+                        onClick={() => selectInputValue("Gói gia đình")}
+                      >
+                        Gói gia đình
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        id="singlepackage"
+                        onClick={() => selectInputValue("Gói cá nhân")}
+                      >
+                        Gói cá nhân
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </div>
               </div>
-              <div className="col">
-                <Dropdown>
-                  <Dropdown.Toggle
-                    variant="warning"
-                    className="button_dropdow"
-                    id="dropdown-basic"
-                  ></Dropdown.Toggle>
-                  <Dropdown.Menu>
-                    <Dropdown.Item
-                      id="familypackage"
-                      onClick={() => selectInputValue("Gói gia đình")}
-                    >
-                      Gói gia đình
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      id="singlepackage"
-                      onClick={() => selectInputValue("Gói cá nhân")}
-                    >
-                      Gói cá nhân
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
+              <div className="row mt-3  ms-5">
+                <div className="col ">
+                  <input
+                    className="form-control note-wrapper1"
+                    type="number"
+                    placeholder="Số lượng vé"
+                    id="quantity"
+                  />
+                </div>
+                <div className="col">
+                  <DateSelector />
+                </div>
+                <div className="col">
+                  <img src={calendar} alt="" className="img_calendar" />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3  ms-5">
-              <div className="col ">
-                <input
-                  className="form-control note-wrapper1"
-                  type="number"
-                  placeholder="Số lượng vé"
-                  id="quantity"
-                />
+              <div className="row mt-3  ms-5">
+                <div className="col">
+                  <input
+                    className="form-control note-wrapper2"
+                    type="text"
+                    placeholder="Họ và tên"
+                    id="fullName"
+                  />
+                </div>
               </div>
-              <div className="col">
-                <input
-                  className="form-control note-wrapper1"
-                  type="date"
-                  placeholder="Ngày sử dụng"
-                  id="date"
-                />
+              <div className="row mt-3  ms-5">
+                <div className="col">
+                  <input
+                    className="form-control note-wrapper2"
+                    type="text"
+                    placeholder="Số điện thoại"
+                    id="phone"
+                  />
+                </div>
               </div>
-              <div className="col">
-                <img src={calendar} alt="" className="img_calendar" />
+              <div className="row mt-3  ms-5">
+                <div className="col">
+                  <input
+                    className="form-control note-wrapper2"
+                    type="text"
+                    placeholder="Địa chỉ email"
+                    id="email"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="row mt-3  ms-5">
-              <div className="col">
-                <input
-                  className="form-control note-wrapper2"
-                  type="text"
-                  placeholder="Họ và tên"
-                  id="fullName"
-                />
-              </div>
-            </div>
-            <div className="row mt-3  ms-5">
-              <div className="col">
-                <input
-                  className="form-control note-wrapper2"
-                  type="text"
-                  placeholder="Số điện thoại"
-                  id="phone"
-                />
-              </div>
-            </div>
-            <div className="row mt-3  ms-5">
-              <div className="col">
-                <input
-                  className="form-control note-wrapper2"
-                  type="text"
-                  placeholder="Địa chỉ email"
-                  id="email"
-                />
-              </div>
-            </div>
-            <div className="row mt-5  ms-5">
-              <div className="col">
-                <button
-                  type="button"
-                  className="btn button_put"
-                  onClick={handlePay}
-                >
-                  Đặt vé
-                </button>
+              <div className="row mt-5  ms-5">
+                <div className="col">
+                  <button
+                    type="button"
+                    className="btn btn-danger btn_pt"
+                    onClick={handlePay}
+                  >
+                    Đặt vé
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -221,4 +220,5 @@ export const Home = () => {
     </div>
   );
 };
+
 export default Home;
