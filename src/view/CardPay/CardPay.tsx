@@ -1,27 +1,11 @@
-import React, { forwardRef, useState } from "react";
 import { NewPayType } from "../../types/pay";
 import "./CardPay.css";
 import { tick } from "../../assect/img/1index";
 
-
-interface IProps {
-  pay: NewPayType;
-}
-const CardPay = forwardRef<HTMLImageElement, IProps>(({ pay }, ref) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
+function CardPay({ pay }: { pay: NewPayType }) {
   return (
-    <div className="card card-pay">
-      <img
-        ref={ref}
-        src={pay.image}
-        className={`img_cardpay ${imageLoaded ? "img_loaded" : ""}`}
-        alt="eventImage"
-        onLoad={handleImageLoad}
-      />
+    <div className="card card-pay" data-cardpay-id={pay.idqr}>
+      <img src={pay.image} className="img_cardpay" alt="eventImage" />
       <div className="card-body card_body_pay">
         <div className="idqr">
           <p>{pay.idqr}</p>
@@ -43,6 +27,6 @@ const CardPay = forwardRef<HTMLImageElement, IProps>(({ pay }, ref) => {
       </div>
     </div>
   );
-});
+}
 
 export default CardPay;

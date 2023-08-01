@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {
+  calendar,
   group3,
   group4,
   sadface,
@@ -216,21 +217,30 @@ function Pay() {
               </div>
               <div className="row">
                 <div className="col col-8 ms-5">
-                  <label htmlFor="exampleInputDate" className="form-label">
-                    Ngày hết hạn
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="expirationdate"
-                    value={expirationDate}
-                    onChange={(e) => setExpirationDate(e.target.value)}
-                    autoComplete="off"
-                  />
+                  <div className="row">
+                    <label htmlFor="exampleInputDate" className="form-label">
+                      Ngày hết hạn
+                    </label>
+                  </div>
+                  <div className="row">
+                    <div className="col col-12">
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="expirationdate"
+                        value={expirationDate}
+                        onChange={(e) => setExpirationDate(e.target.value)}
+                        autoComplete="off"
+                      />
+                    </div>
+                    <div className="col col-1">
+                      <img src={calendar} alt="" className="img_calendar_pay" />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col col-2 ms-5">
+              <div className="row cvv_form">
+                <div className="col col-3 ms-5">
                   <label htmlFor="exampleInputNumber" className="form-label">
                     CVV/CVC
                   </label>

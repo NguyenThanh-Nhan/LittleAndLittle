@@ -5,9 +5,11 @@ import { NewPayType } from "../../types/pay";
 import Slider from "react-slick";
 import { DocumentData, QuerySnapshot, onSnapshot } from "firebase/firestore";
 import { paysCollection } from "../../config/controller";
-import CardPay from "../CardPay/CardPay";
 import { useLocation } from "react-router-dom";
 import html2canvas from "html2canvas";
+import { Modal } from "react-bootstrap";
+import emailjs from "emailjs-com";
+import CardPay from "../CardPay/CardPay";
 
 function Payment() {
   const [pays, setPays] = useState<NewPayType[]>([]);
@@ -16,6 +18,12 @@ function Payment() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const selectedQuantity = parseInt(queryParams.get("quantity") || "0");
+  const [showModal, setShowModal] = useState(false);
+  const [message, setMessage] = useState({ text: "", type: "" });
+  const [emailLoading, setEmailLoading] = useState(false);
+  const clearMessage = () => {
+    setMessage({ text: "", type: "" });
+  };
 
   useEffect(() => {
     const unsubscribe = onSnapshot(
@@ -31,10 +39,63 @@ function Payment() {
         );
       }
     );
-
     return () => unsubscribe();
   }, []);
 
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleSendEmail = () => {
+    const emailInput = document.getElementById(
+      "emailInput"
+    ) as HTMLInputElement;
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      alert("Please enter a valid email.");
+      return;
+    }
+
+    setEmailLoading(true);
+
+    const selectedPays = filteredPays.slice(0, selectedQuantity);
+
+    // Prepare an array of ticket images to send in the email
+    const ticketImageUrls = selectedPays.map((pay) => pay.image);
+
+    emailjs
+      .send(
+        "service_fm0xly8",
+        "template_es0jwgp",
+        {
+          email,
+          thankYouMessage: "Thank you for purchasing the ticket!",
+          imageUrl: ticketImageUrls.join("\n\n"),
+        },
+        "FumtQtddVkVrLAFVO"
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully!", response);
+          setMessage({ text: "Email sent successfully!", type: "success" });
+          setTimeout(clearMessage, 1000);
+          setEmailLoading(false);
+        },
+        (error) => {
+          console.error("Failed to send email.", error);
+          setMessage({ text: "Failed to send email.", type: "error" });
+          setTimeout(clearMessage, 1000);
+          setEmailLoading(false);
+        }
+      );
+
+    console.log("Selected Pays: ", selectedPays);
+  };
   const previous = () => {
     sliderRef.current?.slickPrev();
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
@@ -48,7 +109,7 @@ function Payment() {
   };
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     arrows: false,
     speed: 500,
@@ -96,22 +157,31 @@ function Payment() {
 
   const downloadAllCards = () => {
     const cardPayElements = document.querySelectorAll(".card-pay");
-    const promises = Array.from(cardPayElements).map((cardPayElement) =>
-      html2canvas(cardPayElement as HTMLElement)
+
+    // Convert the NodeList to an array for better handling
+    const cardPayArray = Array.from(cardPayElements);
+
+    // Create an array to store the promises from html2canvas
+    const promises = cardPayArray.map((cardPayElement, index) =>
+      html2canvas(cardPayElement as HTMLElement, {
+        backgroundColor: null, // Set the background to transparent
+      })
     );
 
     Promise.all(promises).then((canvasElements) => {
-      const imageUrls = canvasElements.map((canvasElement, index) => {
-        const imageURL = (canvasElement as HTMLCanvasElement).toDataURL(
-          "image/png"
-        );
-        const link = document.createElement("a");
-        link.download = `ve_cong_${index}.png`;
-        link.href = imageURL;
-        link.click();
-        return imageURL;
+      canvasElements.forEach((canvasElement, index) => {
+        // Create an image element to display the canvas
+        const image = new Image();
+        image.src = (canvasElement as HTMLCanvasElement).toDataURL("image/png");
+
+        // Wait for the image to load before proceeding with the download
+        image.onload = () => {
+          const link = document.createElement("a");
+          link.download = `ve_cong_${index}.png`;
+          link.href = image.src;
+          link.click();
+        };
       });
-      console.log(imageUrls);
     });
   };
 
@@ -187,9 +257,49 @@ function Payment() {
           </button>
         </div>
         <div className="col">
-          <button type="button" className="btn btn-danger">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleShowModal}
+          >
             Gửi email
           </button>
+          <Modal show={showModal} onHide={handleCloseModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Nhập Email</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              {message.text && (
+                <div
+                  className={`message ${
+                    message.type === "success" ? "success" : "error"
+                  }`}
+                  style={{
+                    textAlign: "center",
+                    color: "green",
+                  }}
+                >
+                  {message.text}
+                </div>
+              )}
+              <input
+                type={"email"}
+                required
+                placeholder="Enter Email"
+                className="form-control"
+                id="emailInput"
+              />
+            </Modal.Body>
+            <Modal.Footer>
+              <button
+                type="submit"
+                className="btn btn-danger"
+                onClick={handleSendEmail}
+              >
+                {emailLoading ? "Đang gửi email" : "Gửi email"}
+              </button>
+            </Modal.Footer>
+          </Modal>
         </div>
       </div>
     </div>
